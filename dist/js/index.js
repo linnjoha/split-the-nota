@@ -1,52 +1,29 @@
-//Dessa är alla variabler du behöver använda. 
-//De ska dock ligga i olika funktioner och inte nedanför.
-
-const tip;
-const sum;
-const numberOfFriends;
-const total;
-const friendSum;
-const sumDivided;
-const calculatedTip;
-const total;
-
-//Hämtar det som skrivits i inputfältet med ID tip
-document.getElementById('tip').value;
-
-function calculateTip(sum, tip) {}
-
-document.getElementById('calculateButton').addEventListener('click', function() {});
-
-//Hämtar det som skrivits i inputfältet med ID sum
-document.getElementById('sum').value;
-
-calculateTip(sum, tip);
-
-sum + calculatedTip;
-
-function divideTotal(total, numberOfFriends) {}
-
-document.getElementById('friendSum').innerHTML = sum + ' kr';
-
-//Returnerar värdet i variablen sumDivided i en funktion
-return sumDivided;
-
-showDividedSum(friendSum);
-
-document.getElementById('showSum').classList.toggle('hide');
-
-total / numberOfFriends;
-
-function showDividedSum(sum) {}
-
-document.getElementById('inputForm').classList.toggle('hide');
-
-sum * tip;
-
-//Returnerar värdet i variablen total i en funktion
-return total;
-
-divideTotal(total, numberOfFriends);
-
-//Hämtar det som skrivits i inputfältet med ID numberOfFriends
-document.getElementById('numberOfFriends').value;
+const tip = parseFloat(document.getElementById("tip").value);
+const sum = parseFloat(document.getElementById("sum").value);
+const numberOfFriends = parseFloat(document.getElementById("numberOfFriends").value);
+function calculateTip(sum, tip) {
+    const total = sum * tip;
+    return total;
+}
+//calculateTip(sum, tip);
+const calculatedTip = calculateTip(sum, tip);
+const total = sum + calculatedTip;
+function divideTotal(total, numberOfFriends) {
+    const sumDivided = total / numberOfFriends;
+    return sumDivided;
+}
+//divideTotal(total, numberOfFriends);
+const friendSum = divideTotal(total, numberOfFriends);
+function showDividedSum(sum) {
+    console.log(sum);
+    document.getElementById("showSum").classList.toggle("hide");
+    document.getElementById("inputForm").classList.toggle("hide");
+    document.getElementById("friendSum").innerHTML = sum + " kr";
+}
+document
+    .getElementById("calculateButton")
+    .addEventListener("click", function () {
+    calculateTip(sum, tip);
+    divideTotal(total, numberOfFriends);
+    showDividedSum(friendSum);
+});
